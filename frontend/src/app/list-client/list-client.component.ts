@@ -42,6 +42,7 @@ export class ListClientComponent implements OnInit {
           .subscribe( () => {
               this.dataClient = this.dataClient.filter(c => c !== id)
               // this.listeClient();
+              this.getListClient();
           })
       
   }

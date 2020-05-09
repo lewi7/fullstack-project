@@ -69,6 +69,28 @@ raha misy erreur n port 80,d service de publication world we wide désactivena
     </ng-template>
 
 
+    antony tsy mapety n POST s PATCH
+    app/http/middleware/verifyCsrfToken/
+
+     protected $except = [
+        '/*'
+        raha ohatra /addClient
+
+        f raha anatin Api/ l natao resource api
+        Route::namespace('Api')->group(
+            function(){
+                Route::apiResource('client','ClientController');
+            }
+        );
+
+        d 
+
+        protected $except = [
+            'api/*'
+
+    ];
+
+
 
 
 

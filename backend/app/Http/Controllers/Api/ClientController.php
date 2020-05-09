@@ -36,7 +36,8 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create($request->all());
+        $client = Client::create($request->all());
+        return response()->json($client,201);
     }
 
     /**

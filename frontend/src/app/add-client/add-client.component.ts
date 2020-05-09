@@ -55,8 +55,17 @@ export class AddClientComponent implements OnInit {
     console.log(newClient);
     // affiche tous les saisis
 
-    this.clientService.createClient(newClient).subscribe( data => this.router.navigate(['/liste-client']) )
+     // -----------------------------------------------------------------------
 
+     this.clientService.createClient(newClient)
+         .subscribe( 
+            (data) => { 
+              this.router.navigate(['/liste-client']) 
+          })
+
+    // -----------------------------------------------------------------------
+
+    // this.clientService.createClient(newClient).then( () => alert('connexion') ).catch(error => alert('erreur'))
 
   }
 

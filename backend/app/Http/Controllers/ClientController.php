@@ -12,24 +12,46 @@ class ClientController extends Controller
         $clients = new Client();
     }
 
-    function getListClients(){
+    // efa vita n ressource n api
+
+    // function getListClients(){
+    //     $clients = new Client();
+    //     $dataFromModel = $clients->getClients();
+    //     return response()->json($dataFromModel);
+    // }
+
+
+        // echo "OK";
+
+    function addClients(Request $request){
+        // addClient($data)
         $clients = new Client();
-        $dataFromModel = $clients->getClients();
-        return response()->json($dataFromModel);
+
+        // vous pouvez aussi recupérer tout les données input comme un tableau en utilisant la methode 
+        // $request->all()
+        
+        $data = $clients->addClient($request->all());
+      
     }
 
-    // function addClients(Request $request){
-    //     // addClient($data)
-    //     $clients = new Client();
+    
 
-    //     // vous pouvez aussi recupérer tout les données input comme un tableau en utilisant la methode 
-    //     // $request->all()
+     function updateClients(Request $request){
         
-    //     $data = $clients->addClient($request->all());
-      
+        $id = $request->id;
+        // echo $id;
+        $clients = new Client();
+        $clients->updateClient($id,$request->all());
+    }
+
+    // function deleteClients(Request $request){
+        
+    //     $id = $request->id;
+    //     // echo $id;
+    //     // echo "supprimer";
+
+    //     $clients = new Client();
+    //     $clients->deleteClient($id);
     // }
 
-    // function addClients(){
-    //    echo "hello";
-    // }
 }
