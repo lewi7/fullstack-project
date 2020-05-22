@@ -44,7 +44,10 @@ export class EditerComponentComponent implements OnInit {
   }
 
   updateClient(){
-    this.clientService.updateClient(this.id,this.unClient).subscribe( (res) => this.router.navigate(['/liste-client']) )
+    this.clientService.updateClient(this.id,this.unClient)
+            .subscribe( 
+                (data) => {
+                  this.router.navigate(['/liste-client']) 
+                })
   }
-
 }

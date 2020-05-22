@@ -12,26 +12,12 @@
 |
 */
 
-	header('Access-Control-Allow-Methods: GET,POST,PUT,DELETE,HEAD,PATCH,OPTIONS');
-	// header('Access-Control-Allow-Methods: *');
-	header('Access-Control-Allow-origin: *');
-	header('Content-Type: application/json; charset=utf-8');
-	header('Access-Control-Expose-Header: X-Requested-With,X-jsonblob,X-Hello-Human,Location,Date,Content-Type,Accept,Origin');
-	header('Vary: Accept-Encoding');
-	header('X-Firefox-Spdy: h2');
-	header('Access-Control-Allow-Headers: *');
-
-	// header('Access-Control-Allow-Origin: *');
-	// header('Access-Control-Allow-Methods: GET,POST,DELETE,PUT,PATCH');
-	// header('Access-Control-Allow-Headers: Origin,Content-type');
-
-	// header('Access-Control-Allow-Origin: *');
-	// header('Access-Control-Allow-Methods: *');
-	// header('Access-Control-Allow-Headers: *');
 
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +44,7 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+
 
 /*
 |--------------------------------------------------------------------------

@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+
+    protected $fillable = [
+        'id','nom', 'prenom','addresse','contact'
+    ];
+
 	// efa vitan ressource
 
     // function getClients(){
@@ -14,17 +19,17 @@ class Client extends Model
     //     return $data;
     // }
 
-    function addClient($data){
-        DB::table('clients')->insert($data);
-    }
+    // function addClient($data){
+    //     DB::table('clients')->insert($data);
+    // }
 
-    function updateClient($id,$data){
-        DB::table('clients')->where('id',$id)->update($data);
-    }
+    // function updateClient($id,$data){
+    //     DB::table('clients')->where('id',$id)->update($data);
+    // }
 
-    function deleteClient($id){
-        DB::table('clients')->where('id',$id)->delete();
-    }
+    // function deleteClient($id){
+    //     DB::table('clients')->where('id',$id)->delete();
+    // }
 
     
 }

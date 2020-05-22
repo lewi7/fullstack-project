@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Compiler } from '@angular/core';
 import { ClientService } from '../services/client.service';
 import { Client } from '../models/client';
 import { Router } from '@angular/router';
@@ -12,9 +12,10 @@ export class ListClientComponent implements OnInit {
 
   dataClient : Client[] = [];
 
-  constructor(private clientService : ClientService,private routerAppli : Router) { }
+  constructor(private clientService : ClientService,private routerAppli : Router,private _compiler: Compiler) { }
 
   ngOnInit() {
+    this._compiler.clearCache();
       this.getListClient();
   }
 

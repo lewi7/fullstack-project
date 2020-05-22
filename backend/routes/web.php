@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 // Route::get('/client','ClientController@getListClients');
-Route::post('/addClient','ClientController@addClients');
+// Route::post('/addClient','ClientController@addClients');
 
-Route::patch('/updateClient/{id}','ClientController@updateClients');
+// Route::patch('/updateClient/{id}','ClientController@updateClients');
 // Route::delete('/deleteClient/{id}','ClientController@deleteClients');
