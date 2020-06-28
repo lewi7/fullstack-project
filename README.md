@@ -1,11 +1,9 @@
-# fullstack-project
+# angular-laravel
 
-- frontend
-angular
+
 run npm install
 
 ------------------------------------------------
 
--backend
-laravel
+
 run composer install
