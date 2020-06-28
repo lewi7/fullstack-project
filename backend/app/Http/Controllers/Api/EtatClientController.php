@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Model\Client;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Model\EtatClient;
 
-
-class ClientController extends Controller
+class EtatClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return Client::all();
+        return EtatClient::all();
     }
 
     /**
@@ -37,7 +36,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Client::create($request->all());
+        $data = EtatClient::create($request->all());
         return response()->json($data);
     }
 
@@ -47,9 +46,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(EtatClient $etatClient)
     {
-        return $client;
+        return $etatClient;
     }
 
     /**
@@ -70,9 +69,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Client $client)
+    public function update(Request $request, EtatClient $etatClient)
     {
-        $client->update($request->all());
+        $etatClient->update($request->all());
     }
 
     /**
@@ -81,8 +80,16 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(EtatClient $etatClient)
     {
-        $client->delete();
+        $etatClient->delete();
+    }
+
+    
+    public function getListEtatCli()
+    {
+        $etatClient = new EtatClient();
+        $list = $etatClient->getEtatClient();
+        return response()->json($list);
     }
 }

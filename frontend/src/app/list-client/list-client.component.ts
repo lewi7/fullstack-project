@@ -12,10 +12,9 @@ export class ListClientComponent implements OnInit {
 
   dataClient : Client[] = [];
 
-  constructor(private clientService : ClientService,private routerAppli : Router,private _compiler: Compiler) { }
+  constructor(private clientService : ClientService,private routerAppli : Router) { }
 
   ngOnInit() {
-    this._compiler.clearCache();
       this.getListClient();
   }
 
@@ -33,19 +32,32 @@ export class ListClientComponent implements OnInit {
     this.routerAppli.navigate(['/liste-client']);
   }
 
-  deleteClient(id:any){
+  async deleteClient(id:number){
       // c : variable nforoporonina
       // dataClient tableau liste client
       // console.log(id);
       // alert('supprimer');
 
-      this.clientService.deleteClient(id)
-          .subscribe( () => {
-              this.dataClient = this.dataClient.filter(c => c !== id)
-              // this.listeClient();
-              this.getListClient();
-          })
+      await this.clientService.deleteClient(id)
+        .subscribe( (res) => {
+          this.getListClient();
+        },err => {
+          console.log(err);
+        })
+
+      // this.clientService.deleteClient(id)
+      //   .subscribe( (res) => {
+      //     this.routerAppli.navigate(['/liste-client']);
+      //   })
       
+      // this.clientService.deleteClient(id);
+      // const item = this.dataClient.find( elt => elt.id === id);
+      // this.dataClient.splice(this.dataClient.indexOf(item));
+
+      // this.clientService.deleteClient(id).subscribe(
+      //   () => { this.dataClient.splice(index,1); }
+      // )
+
   }
 
   
